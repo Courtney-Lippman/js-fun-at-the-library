@@ -1,5 +1,4 @@
 var assert = require("chai").assert;
-//Created variable assert and go into chai library and get assert functionality to be assigned to assert variable.
 
 var {
   createTitle,
@@ -10,25 +9,19 @@ var {
   editBook
 } = require("../src/book.js");
 
-// these describe statements are apart of the test framework mocha and tell the order of how functions should be run.
+
 describe("book.js", function () {
   describe("createTitle", function() {
     it("should be a function", function () {
       assert.isFunction(createTitle);
     });
-//start of one test
-// it and it.skip is pulling from mocha. Test must be in an it block. it (function goes in here),
+
     it("should take in a title and return a modified title", function () {
       var bookIdea = createTitle("Storm's Awakening");
-//bookIdea is a variable
-//createTitle is a function that is being invoked ()
-// ('Storm's Awakening) is the argument being passed in to parameter of function
+
       assert.equal(bookIdea, "The Storm's Awakening");
-      //assert.equal is referencing the functionality of chai library (expect is also another word for chai)
-      //bookIdea is what is being sent through the code
-      //"The Storm's Awakening" is the what the return should equal when var bookIdea is ran through the function.
+
     });
-    //end of one test
 
     it("should be able to create many modified titles", function () {
       var sushiTitle = createTitle("Dancing Sushi");
@@ -128,7 +121,6 @@ describe("book.js", function () {
       var book = writeBook(bookTitle, bookCharacter, "fantasy");
 
       assert.equal(book.title, bookTitle);
-      //I look at var book with invokes function writeBook with the assignments of bookTitle, bookCharacter, and "fantasy" when I ask for the specific title key I get back  var bookTitle .
       assert.equal(book.mainCharacter, bookCharacter);
       assert.equal(book.pageCount, 340);
       assert.equal(book.genre, "fantasy");
@@ -163,7 +155,6 @@ describe("book.js", function () {
       assert.equal(ghoulBook.pageCount, 255);
     });
 
-//I am still pretty fuzzy on this one. I plan to review it a few times!
     it("should decrease a different book's page count to be three quarters of what it originally was", function () {
       var dragonTitle = createTitle("Dragon in the Summer");
       var dragonCharacter = buildMainCharacter("Dana", 25, "they/them");
