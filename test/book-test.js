@@ -1,4 +1,5 @@
 var assert = require("chai").assert;
+//Created variable assert and go into chai library and get assert functionality to be assigned to assert variable.
 
 var {
   createTitle,
@@ -9,18 +10,25 @@ var {
   editBook
 } = require("../src/book.js");
 
-
+// these describe statements are apart of the test framework mocha and tell the order of how functions should be run.
 describe("book.js", function () {
   describe("createTitle", function() {
     it("should be a function", function () {
       assert.isFunction(createTitle);
     });
-
+//start of one test
+// it and it.skip is pulling from mocha. Test must be in an it block. it (function goes in here),
     it("should take in a title and return a modified title", function () {
       var bookIdea = createTitle("Storm's Awakening");
-
+//bookIdea is a variable
+//createTitle is a function that is being invoked ()
+// ('Storm's Awakening) is the argument being passed in to parameter of function
       assert.equal(bookIdea, "The Storm's Awakening");
+      //assert.equal is referencing the functionality of chai library (expect is also another word for chai)
+      //bookIdea is what is being sent through the code
+      //"The Storm's Awakening" is the what the return should equal when var bookIdea is ran through the function.
     });
+    //end of one test
 
     it("should be able to create many modified titles", function () {
       var sushiTitle = createTitle("Dancing Sushi");
@@ -53,11 +61,11 @@ describe("book.js", function () {
   });
 
   describe("saveReview", function() {
-    it.skip("should be a function (comment the function back into the module.exports object in book.js)", function () {
+    it("should be a function (comment the function back into the module.exports object in book.js)", function () {
       assert.isFunction(saveReview);
     });
 
-    it.skip("should be able to add reviews to an array", function() {
+    it("should be able to add reviews to an array", function() {
       var reviews = [];
 
       saveReview("An astounding success", reviews);
@@ -66,7 +74,7 @@ describe("book.js", function () {
       assert.deepEqual(reviews, ["An astounding success"]);
     });
 
-    it.skip("should be able to add reviews to an array that already contains reviews", function() {
+    it("should be able to add reviews to an array that already contains reviews", function() {
       var reviews = ["You won't be able to put it down"];
 
       saveReview("A page turner!", reviews);
@@ -76,7 +84,7 @@ describe("book.js", function () {
       assert.deepEqual(reviews, ["You won't be able to put it down", "A page turner!", "An instant classic!"]);
     });
 
-    it.skip("should only add unique reviews", function() {
+    it("should only add unique reviews", function() {
       var reviews = [];
 
       saveReview("I want everyone to read this book!", reviews);
@@ -89,18 +97,19 @@ describe("book.js", function () {
   });
 
   describe("calculatePageCount", function() {
-    it.skip("should be a function (comment the function back into the module.exports object in book.js)", function () {
+    it("should be a function (comment the function back into the module.exports object in book.js)", function () {
       assert.isFunction(calculatePageCount);
     });
 
-    it.skip("should add 20 pages per letter in the title", function () {
+    it("should add 20 pages per letter in the title", function () {
       var bookTitle = createTitle("Teenage Ghoul");
       var bookPageCount = calculatePageCount(bookTitle);
 
       assert.equal(bookPageCount, 340);
+      //should run var bookPageCount into function calculatePageCount and yield 340 as the output.
     });
 
-    it.skip("should add 20 pages per letter for a different title", function () {
+    it("should add 20 pages per letter for a different title", function () {
       var bookTitle = createTitle("Dragon in the Summer");
       var bookPageCount = calculatePageCount(bookTitle);
 
@@ -109,22 +118,23 @@ describe("book.js", function () {
   });
 
   describe("writeBook", function() {
-    it.skip("should be a function", function () {
+    it("should be a function", function () {
       assert.isFunction(writeBook);
     });
 
-    it.skip("should return a book object", function () {
+    it("should return a book object", function () {
       var bookTitle = createTitle("Teenage Ghoul");
       var bookCharacter = buildMainCharacter("Vassya", 16, "she/her");
       var book = writeBook(bookTitle, bookCharacter, "fantasy");
 
       assert.equal(book.title, bookTitle);
+      //I look at var book with invokes function writeBook with the assignments of bookTitle, bookCharacter, and "fantasy" when I ask for the specific title key I get back  var bookTitle .
       assert.equal(book.mainCharacter, bookCharacter);
       assert.equal(book.pageCount, 340);
       assert.equal(book.genre, "fantasy");
     });
 
-    it.skip("should return a different book object", function () {
+    it("should return a different book object", function () {
       var dragonTitle = createTitle("Dragon in the Summer");
       var dragonCharacter = buildMainCharacter("Dana", 25, "they/them");
       var dragonBook = writeBook(dragonTitle, dragonCharacter, "fantasy");
@@ -137,7 +147,7 @@ describe("book.js", function () {
   });
 
   describe("editBook", function() {
-    it.skip("should be a function", function () {
+    it("should be a function", function () {
       assert.isFunction(editBook);
     });
 
