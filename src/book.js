@@ -31,9 +31,11 @@ return bookTitle.length * 20
  return book
 };
 
-function editBook() {
+function editBook(book) {
+return book.pageCount = book.pageCount * 0.75;
 
 };
+
 
 module.exports = {
   createTitle,
