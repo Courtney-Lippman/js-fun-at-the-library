@@ -151,7 +151,7 @@ describe("book.js", function () {
       assert.isFunction(editBook);
     });
 
-    it.skip("should decrease the book's page count to be three quarters of what it originally was", function () {
+    it("should decrease the book's page count to be three quarters of what it originally was", function () {
       var ghoulTitle = createTitle("Teenage Ghoul");
       var ghoulCharacter = buildMainCharacter("Vassya", 16, "she/her");
       var ghoulBook = writeBook(ghoulTitle, ghoulCharacter, "mystery");
@@ -163,8 +163,8 @@ describe("book.js", function () {
       assert.equal(ghoulBook.pageCount, 255);
     });
 
-
-    it.skip("should decrease a different book's page count to be three quarters of what it originally was", function () {
+//I am still pretty fuzzy on this one. I plan to review it a few times!
+    it("should decrease a different book's page count to be three quarters of what it originally was", function () {
       var dragonTitle = createTitle("Dragon in the Summer");
       var dragonCharacter = buildMainCharacter("Dana", 25, "they/them");
       var dragonBook = writeBook(dragonTitle, dragonCharacter, "fantasy");
