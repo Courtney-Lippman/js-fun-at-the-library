@@ -124,6 +124,7 @@ describe("library.js", function() {
       var error2 = checkoutBook(denverLibrary, "Yes Please", "nonFiction");
 
       assert.equal(error2, "Sorry, there are currently no copies of Yes Please available at the Denver Public Library");
+
     });
   });
 });
