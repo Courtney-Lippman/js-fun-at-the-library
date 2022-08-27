@@ -11,6 +11,7 @@ function createLibrary(name, shelves) {
 };
 
 function addBook(library, book) {
+  //Could loop through shelves and if I find a match then I add the book but if I don't find a match then I add a new shelf.
   if (book.genre === 'fantasy') {
     return library.shelves.fantasy.push(book);
   } else if (book.genre === 'fiction') {
@@ -28,36 +29,35 @@ function checkoutBook(library, title, genre) {
   if (genre === `fantasy`) {
     for (var i = 0; i < library.shelves.fantasy.length; i++) {
       if (library.shelves.fantasy[i].title === title) {
-   library.shelves.fantasy.shift(library.shelves.fantasy[i]);
-  return `You have now checked out ${title} from the ${library.name}`;
-} else if (!library.shelves.nonFiction[i].title === title){
-   return `Sorry, there are currently no copies of ${title} at the ${library.name}`;
-}
+        library.shelves.fantasy.shift(library.shelves.fantasy[i]);
+        return `You have now checked out ${title} from the ${library.name}`;
+      }
     }
-  } else if (genre === 'fiction') {
+    return `Sorry, there are currently no copies of ${title} available at the ${library.name}`;
+  }
+  else if (genre === `fiction`) {
     for (var i = 0; i < library.shelves.fiction.length; i++) {
       if (library.shelves.fiction[i].title === title) {
         library.shelves.fiction.shift(library.shelves.fiction[i]);
         return `You have now checked out ${title} from the ${library.name}`;
-      } else if (!library.shelves.nonFiction[i].title === title) {
-        return `Sorry, there are currently no copies of ${title} at the ${library.name}`;
       }
     }
-  } else if (genre === 'nonFiction') {
-     for (var i = 0; i < library.shelves.nonFiction.length; i++) {
-       if (library.shelves.nonFiction[i].title === title)  {
-         library.shelves.nonFiction.shift(library.shelves.nonFiction[i]);
-                return `You have now checked out ${title} from the ${library.name}`;
-       } else if (!library.shelves.nonFiction[i].title === title){
-             return `Sorry, there are currently no copies of ${title} at the ${library.name}`
-       }
-
-     }
+    return `Sorry, there are currently no copies of ${title} available at the ${library.name}`;
+  }
+  else if (genre === `nonFiction`) {
+    for (var i = 0; i < library.shelves.nonFiction.length; i++) {
+      if (library.shelves.nonFiction[i].title === title) {
+        library.shelves.nonFiction.shift(library.shelves.nonFiction[i]);
+        return `You have now checked out ${title} from the ${library.name}`;
+      }
+    }
+    return `Sorry, there are currently no copies of ${title} available at the ${library.name}`;
   }
 
-  //clean up else if statements and for loops for all shelves.
 
-  //The look through the shelf comparing the title they see with the title of the book that you gave them.
+
+
+  //They look through the shelf comparing the title they see with the title of the book that you gave them.
 
   // Once they find the book title that matches the book title you gave them, they take the book off the shelf. Or they go through the entire shelf and cannot match the titles.
 
