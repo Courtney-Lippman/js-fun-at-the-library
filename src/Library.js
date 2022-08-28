@@ -12,13 +12,19 @@ function createLibrary(name, shelves) {
 
 function addBook(library, book) {
   //Could loop through shelves and if I find a match then I add the book but if I don't find a match then I add a new shelf.
-  if (book.genre === 'fantasy') {
-    return library.shelves.fantasy.push(book);
-  } else if (book.genre === 'fiction') {
-    return library.shelves.fiction.push(book);
-  } else if (book.genre === 'nonFiction') {
-    return library.shelves.nonFiction.push(book);
-  };
+  for (var shelf in library.shelves) {
+      if (book.genre === shelf) {
+        return library.shelves[shelf].push(book);
+      }
+  }
+
+  // if (book.genre === 'fantasy') {
+  //   return library.shelves.fantasy.push(book);
+  // } else if (book.genre === 'fiction') {
+  //   return library.shelves.fiction.push(book);
+  // } else if (book.genre === 'nonFiction') {
+  //   return library.shelves.nonFiction.push(book);
+  // };
 };
 //(denverLibrary, "Pride and Prejudice", "fiction")
 function checkoutBook(library, title, genre) {
@@ -26,11 +32,8 @@ function checkoutBook(library, title, genre) {
 
   //The librarian goes to the shelf in the library that is associated with the genre you told them.
 
-  for (var key in library.shelves) {
-if (library.hasOwnProperty(key)) {
-  console.log(key);
-}
-  }
+
+};
 //     for (var i = 0; i < library.shelves.fantasy.length; i++) {
 //       if (library.shelves.fantasy[i].title === title) {
 //         library.shelves.fantasy.shift(library.shelves.fantasy[i]);
@@ -69,7 +72,7 @@ if (library.hasOwnProperty(key)) {
 //
 //
 //   return `You have now checked out ${title} from the ${library.name}`
-};
+//};
 
 module.exports = {
   createLibrary,
