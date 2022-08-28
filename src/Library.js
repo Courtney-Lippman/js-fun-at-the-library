@@ -26,52 +26,65 @@ function checkoutBook(library, title, genre) {
 
   //The librarian goes to the shelf in the library that is associated with the genre you told them.
 
-  if (genre === `fantasy`) {
-    for (var i = 0; i < library.shelves.fantasy.length; i++) {
-      if (library.shelves.fantasy[i].title === title) {
-        library.shelves.fantasy.shift(library.shelves.fantasy[i]);
-        return `You have now checked out ${title} from the ${library.name}`;
-      }
-    }
-    return `Sorry, there are currently no copies of ${title} available at the ${library.name}`;
+  for (var key in library.shelves) {
+if (library.hasOwnProperty(key)) {
+  console.log(key);
+}
   }
-  else if (genre === `fiction`) {
-    for (var i = 0; i < library.shelves.fiction.length; i++) {
-      if (library.shelves.fiction[i].title === title) {
-        library.shelves.fiction.shift(library.shelves.fiction[i]);
-        return `You have now checked out ${title} from the ${library.name}`;
-      }
-    }
-    return `Sorry, there are currently no copies of ${title} available at the ${library.name}`;
-  }
-  else if (genre === `nonFiction`) {
-    for (var i = 0; i < library.shelves.nonFiction.length; i++) {
-      if (library.shelves.nonFiction[i].title === title) {
-        library.shelves.nonFiction.shift(library.shelves.nonFiction[i]);
-        return `You have now checked out ${title} from the ${library.name}`;
-      }
-    }
-    return `Sorry, there are currently no copies of ${title} available at the ${library.name}`;
-  }
-
-
-
-
-  //They look through the shelf comparing the title they see with the title of the book that you gave them.
-
-  // Once they find the book title that matches the book title you gave them, they take the book off the shelf. Or they go through the entire shelf and cannot match the titles.
-
-  //They give the book to you and say `You have now checked out ${title} from the ${library.name}`. Or they come back and say `Sorry, there are currently no copies of ${title} at the ${library.name}`
-
-
-
-
-
-  return `You have now checked out ${title} from the ${library.name}`
+//     for (var i = 0; i < library.shelves.fantasy.length; i++) {
+//       if (library.shelves.fantasy[i].title === title) {
+//         library.shelves.fantasy.shift(library.shelves.fantasy[i]);
+//         return `You have now checked out ${title} from the ${library.name}`;
+//       }
+//     }
+//   }
+//   else if (genre === `fiction`) {
+//     for (var i = 0; i < library.shelves.fiction.length; i++) {
+//       if (library.shelves.fiction[i].title === title) {
+//         library.shelves.fiction.shift(library.shelves.fiction[i]);
+//         return `You have now checked out ${title} from the ${library.name}`;
+//       }
+//     }
+//   }
+//   else if (genre === `nonFiction`) {
+//     for (var i = 0; i < library.shelves.nonFiction.length; i++) {
+//       if (library.shelves.nonFiction[i].title === title) {
+//         library.shelves.nonFiction.shift(library.shelves.nonFiction[i]);
+//         return `You have now checked out ${title} from the ${library.name}`;
+//       }
+//     }
+//   }
+//
+//
+//
+//
+//   //They look through the shelf comparing the title they see with the title of the book that you gave them.
+//
+//   // Once they find the book title that matches the book title you gave them, they take the book off the shelf. Or they go through the entire shelf and cannot match the titles.
+//
+//   //They give the book to you and say `You have now checked out ${title} from the ${library.name}`. Or they come back and say `Sorry, there are currently no copies of ${title} at the ${library.name}`
+//
+//
+//
+//
+//
+//   return `You have now checked out ${title} from the ${library.name}`
 };
 
 module.exports = {
   createLibrary,
   addBook,
   checkoutBook
+}
+
+var p = {
+    "p1": "value1",
+    "p2": "value2",
+    "p3": "value3"
 };
+
+for (var key in p) {
+    if (p.hasOwnProperty(key)) {
+        console.log(key + " -> " + p[key]);
+    }
+}
